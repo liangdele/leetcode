@@ -1,4 +1,4 @@
-package sort;
+package binarySearch;
 
 /**
  * 二分查找

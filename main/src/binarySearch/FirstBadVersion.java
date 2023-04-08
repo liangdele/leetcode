@@ -1,4 +1,4 @@
-package sort;
+package binarySearch;
 
 /**
  * 278. 第一个错误的版本
