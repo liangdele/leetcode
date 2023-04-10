@@ -9,11 +9,9 @@ public class BinaryInsert {
         System.out.println(searchInsert(nums,2));
         ;
     }
-
     public static int searchInsert(int[] nums, int target) {
         return search(nums, 0, nums.length - 1, target);
     }
-
     public static int search(int[] nums, int l, int r, int target) {
 
         if (l < r) {
