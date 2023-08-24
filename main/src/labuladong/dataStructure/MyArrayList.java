@@ -38,8 +38,32 @@ public class MyArrayList<E> {
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
         }
-        data[index]=e;
+        data[index] = e;
         size++;
+    }
+
+    /**
+     * 删除最后一个元素
+     */
+    public void removeLast() {
+        if (size == 0) {
+            return;
+        }
+        data[size] = null;
+        size--;
+    }
+
+    /**
+     * 删除指定位置元素
+     */
+    public void remove(int index) throws Exception {
+        if (index < 0 || index > size) {
+            throw new Exception("边界溢出");
+        }
+        for (int i = index; i < size; i++) {
+            data[i]=data[i+1];
+        }
+        size--;
     }
 
     /**
