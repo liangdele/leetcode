@@ -10,6 +10,15 @@ package labuladong.dataStructure;
 public class MyArrayList<E> {
     private E[] data;
     private int size;
+    private final static int INIT_CAP = 1;
+
+    public MyArrayList() {
+    }
+
+    public MyArrayList(int initCap) {
+        data = (E[]) new Object[initCap];
+        size = 0;
+    }
 
     /**
      * 在最后一位添加元素
@@ -27,43 +36,74 @@ public class MyArrayList<E> {
      * 在指定位置添加一个元素
      */
     public void add(int index, E e) throws Exception {
-        if (index < 0 || index > size) {
-            throw new Exception("边界溢出");
-        }
+        checkPositionIndex(index);
 
         if (index == data.length) {
             resize(data.length * 2);
         }
 
-        for (int i = size - 1; i >= index; i--) {
-            data[i + 1] = data[i];
-        }
+        System.arraycopy(data, index, data, index + 1, size - index);
         data[index] = e;
         size++;
+    }
+
+    private void checkPositionIndex(int index) throws Exception {
+        if (!isPositionIndex(index)) {
+            throw new Exception("边界溢出");
+        }
+    }
+
+    private void checkIsElementIndexIndex(int index) throws Exception {
+        if (!isElementIndex(index)) {
+            throw new Exception("边界溢出");
+        }
+    }
+
+    private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
+    }
+
+    private boolean isElementIndex(int index) {
+        return index >= 0 && index < size;
     }
 
     /**
      * 删除最后一个元素
      */
-    public void removeLast() {
-        if (size == 0) {
-            return;
+    public E removeLast() {
+        if (isEmpty()) {
+            return null;
         }
-        data[size] = null;
+
+        if (size == data.length / 4) {
+            resize(data.length / 4);
+        }
+
+        E lastElement = data[size - 1];
+        data[size - 1] = null;
         size--;
+        return lastElement;
+    }
+
+    private boolean isEmpty() {
+        return size == 0;
     }
 
     /**
      * 删除指定位置元素
      */
-    public void remove(int index) throws Exception {
-        if (index < 0 || index > size) {
-            throw new Exception("边界溢出");
+    public E remove(int index) throws Exception {
+        checkIsElementIndexIndex(index);
+
+        if (size == data.length / 4) {
+            resize(data.length / 4);
         }
-        for (int i = index; i < size; i++) {
-            data[i]=data[i+1];
-        }
+
+        E element = data[index];
+        System.arraycopy(data, index + 1, data, index, size - index - 1);
+        data[size - 1] = null;
         size--;
+        return element;
     }
 
     /**
