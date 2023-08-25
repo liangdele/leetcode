@@ -1,5 +1,9 @@
 package labuladong.dataStructure;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 /**
  * @ClassName : MyArrayList  //类名
  * @Description : 自实现数组  //描述
@@ -7,7 +11,7 @@ package labuladong.dataStructure;
  * @Date: 2023/8/24  上午 11:47
  */
 
-public class MyArrayList<E> {
+public class MyArrayList<E> implements Iterable<E> {
     private E[] data;
     private int size;
     private final static int INIT_CAP = 1;
@@ -106,6 +110,11 @@ public class MyArrayList<E> {
         return element;
     }
 
+    public E get(int index) throws Exception {
+        checkIsElementIndexIndex(index);
+        return data[index];
+    }
+
     /**
      * 扩容
      */
@@ -113,5 +122,27 @@ public class MyArrayList<E> {
         E[] newData = (E[]) new Object[capacity];
         System.arraycopy(data, 0, newData, 0, data.length);
         data = newData;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new MyArrayListIterator();
+    }
+
+    private class MyArrayListIterator implements Iterator<E> {
+        private int index = 0;
+
+        @Override
+        public boolean hasNext() {
+            return index < size;
+        }
+
+        @Override
+        public E next() {
+            if (!hasNext()) {
+                return null;
+            }
+            return data[index++];
+        }
     }
 }
