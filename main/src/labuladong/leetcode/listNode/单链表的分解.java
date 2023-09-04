@@ -1,4 +1,4 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
 public class 单链表的分解 {
     ListNode partition(ListNode head, int x) {

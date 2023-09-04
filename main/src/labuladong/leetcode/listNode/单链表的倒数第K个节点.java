@@ -1,4 +1,4 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
 public class 单链表的倒数第K个节点 {
     public ListNode findFromEnd(ListNode head, int k) {

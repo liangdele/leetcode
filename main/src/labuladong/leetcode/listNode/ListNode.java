@@ -1,4 +1,4 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
 public class ListNode {
     int val;

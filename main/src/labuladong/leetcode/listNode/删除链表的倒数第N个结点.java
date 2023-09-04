@@ -1,4 +1,4 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
 public class 删除链表的倒数第N个结点 {
     public ListNode removeNthFromEnd(ListNode head, int n) {

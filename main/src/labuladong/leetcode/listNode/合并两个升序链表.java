@@ -1,6 +1,4 @@
-package labuladong.leetcode;
-
-import java.util.List;
+package labuladong.leetcode.listNode;
 
 public class 合并两个升序链表 {
     ListNode mergeTwoLists(ListNode l1, ListNode l2) {

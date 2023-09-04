@@ -1,6 +1,5 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class 合并k个有序链表 {

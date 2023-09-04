@@ -1,4 +1,4 @@
-package labuladong.leetcode;/*
+package labuladong.leetcode.listNode;/*
  * @lc app=leetcode.cn id=3 lang=java
  *
  * [3] 无重复字符的最长子串

@@ -1,4 +1,4 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
 public class 判断链表是否包含环 {
     boolean hasCycle(ListNode head) {

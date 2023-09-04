@@ -1,4 +1,4 @@
-package labuladong.leetcode;
+package labuladong.leetcode.listNode;
 
 public class 单链表的中点 {
     ListNode middleNode(ListNode head) {

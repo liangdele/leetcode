@@ -1,4 +1,4 @@
-package labuladong.leetcode;/*
+package labuladong.leetcode.listNode;/*
  * @lc app=leetcode.cn id=26 lang=java
  *
  * [26] 删除有序数组中的重复项
